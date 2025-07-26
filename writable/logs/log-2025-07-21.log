@@ -1,0 +1,115 @@
+CRITICAL - 2025-07-21 11:46:08 --> Error: Class "TCPDF" not found
+[Method: GET, Route: offer-letter/generate]
+in APPPATH/Controllers/OfferLetterController.php on line 25.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\OfferLetterController->generate()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 11:46:17 --> Error: Class "Endroid\QrCode\QrCode" not found
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 40.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 11:46:31 --> Error: Class "Endroid\QrCode\QrCode" not found
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 40.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:02:48 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:05:19 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:11:33 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:18:36 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:19:10 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:19:52 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:22:38 --> ErrorException: imagettfbbox(): Could not find/open font
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 73.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(73): imagettfbbox()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-21 12:27:21 --> ErrorException: imagecreatefromjpeg(/home/u416936962/domains/verify.smeclabs.com/public_html/exp-backgroung.jpg): Failed to open stream: No such file or directory
+[Method: GET, Route: experience-certificate/generate]
+in APPPATH/Controllers/ExperienceCertificate.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/ExperienceCertificate.php(49): imagecreatefromjpeg()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ExperienceCertificate->generate()
+ 4 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()

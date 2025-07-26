@@ -1,0 +1,468 @@
+CRITICAL - 2025-07-08 06:17:44 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashboard.php"
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1173): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Admin.php(37): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+ 5 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+CRITICAL - 2025-07-08 06:17:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashboard.php"
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1173): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Admin.php(37): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+ 5 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+CRITICAL - 2025-07-08 07:11:13 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: POST, Route: admin/approve_employee/3]
+in SYSTEMPATH/BaseModel.php on line 1014.
+ 1 SYSTEMPATH/BaseModel.php(1014): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+ 2 SYSTEMPATH/Model.php(863): CodeIgniter\BaseModel->update()
+ 3 APPPATH/Controllers/Admin.php(241): CodeIgniter\Model->update()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->approveEmployee()
+ 5 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+CRITICAL - 2025-07-08 07:11:16 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: POST, Route: admin/approve_employee/2]
+in SYSTEMPATH/BaseModel.php on line 1014.
+ 1 SYSTEMPATH/BaseModel.php(1014): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset()
+ 2 SYSTEMPATH/Model.php(863): CodeIgniter\BaseModel->update()
+ 3 APPPATH/Controllers/Admin.php(241): CodeIgniter\Model->update()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->approveEmployee()
+ 5 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+
+
+DEBUG - 2025-07-08 08:53:39 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+DEBUG - 2025-07-08 08:53:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:53:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:56:24 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+DEBUG - 2025-07-08 08:56:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:56:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 08:58:59 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+DEBUG - 2025-07-08 09:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-07-08 09:07:22 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:07:22 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:07:27 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:07:27 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+DEBUG - 2025-07-08 09:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-08 09:08:16 --> Employee search: employee_id=sa42191, dob=2005-02-08, result=Array
+(
+    [id] => 3
+    [employee_id] => sa42191
+    [name] => ANTO XAVIER
+    [designation] => Videographer
+    [department] => Media
+    [contact] => 985462314
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-07-07
+    [end_date] => 2025-07-08
+    [dob] => 2005-02-08
+    [approved] => 1
+)
+
+DEBUG - 2025-07-08 09:10:15 --> Employee search: employee_id=sa42191, dob=2005-02-08, result=Array
+(
+    [id] => 3
+    [employee_id] => sa42191
+    [name] => ANTO XAVIER
+    [designation] => Videographer
+    [department] => Media
+    [contact] => 985462314
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-07-07
+    [end_date] => 2025-07-08
+    [dob] => 2005-02-08
+    [approved] => 1
+)
+
+WARNING - 2025-07-08 09:10:20 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:10:20 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+DEBUG - 2025-07-08 09:10:31 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+WARNING - 2025-07-08 09:23:23 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:23:23 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:23:25 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:23:25 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:23:26 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:23:26 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+DEBUG - 2025-07-08 09:23:35 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+DEBUG - 2025-07-08 09:26:36 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+WARNING - 2025-07-08 09:26:40 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:26:40 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+DEBUG - 2025-07-08 09:26:53 --> Employee search: employee_id=sa42192, dob=1992-05-27, result=Array
+(
+    [id] => 2
+    [employee_id] => sa42192
+    [name] => Abhijith
+    [designation] => Wordpress developer
+    [department] => IT
+    [contact] => 9526403035
+    [location] => Kochi
+    [status] => active
+    [start_date] => 2025-06-29
+    [end_date] => 0000-00-00
+    [dob] => 1992-05-27
+    [approved] => 1
+)
+
+WARNING - 2025-07-08 09:26:58 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 12.
+ 1 APPPATH/Controllers/Home.php(12): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+WARNING - 2025-07-08 09:26:58 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH/Controllers/Home.php on line 13.
+ 1 APPPATH/Controllers/Home.php(13): trim(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+ERROR - 2025-07-08 09:57:17 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'u416936962_verify'@'localhost' (using password: YES) in /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+#6 /home/abhijith/projects/employyee verification system/employee-verification-system/app/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+#7 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+#8 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#9 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:246
+Stack trace:
+#0 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#3 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+#4 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+#5 /home/abhijith/projects/employyee verification system/employee-verification-system/app/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+#6 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+#7 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#8 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2025-07-08 09:57:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH/Database/BaseConnection.php on line 467.
+ 1 SYSTEMPATH/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 4 SYSTEMPATH/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+ 5 APPPATH/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')
+ERROR - 2025-07-08 09:57:18 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'u416936962_verify'@'localhost' (using password: YES) in /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+#6 /home/abhijith/projects/employyee verification system/employee-verification-system/app/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+#7 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+#8 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#9 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:246
+Stack trace:
+#0 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#3 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+#4 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+#5 /home/abhijith/projects/employyee verification system/employee-verification-system/app/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+#6 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+#7 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#8 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/abhijith/projects/employyee verification system/employee-verification-system/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2025-07-08 09:57:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH/Database/BaseConnection.php on line 467.
+ 1 SYSTEMPATH/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 4 SYSTEMPATH/BaseModel.php(1287): CodeIgniter\Model->countAllResults()
+ 5 APPPATH/Controllers/Admin.php(39): CodeIgniter\BaseModel->paginate()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/abhijith/projects/employyee verification system/employee-verification-system/public/index.php')

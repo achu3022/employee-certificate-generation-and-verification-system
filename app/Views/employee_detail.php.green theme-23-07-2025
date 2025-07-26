@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body { background: #fff; }
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #00332e 0%, #00534a 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 1rem 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            z-index: 100;
+        }
+        .sidebar .logo {
+            max-width: 120px;
+            max-height: 80px;
+            margin-bottom: 2rem;
+        }
+        .sidebar .nav-link {
+            color: #fff;
+            font-weight: 500;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .sidebar .logout-link {
+            margin-top: auto;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.10);
+            text-align: center;
+            width: 100%;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .sidebar .logout-link:hover {
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+        }
+        .dashboard-navbar {
+            position: fixed;
+            left: 240px;
+            right: 0;
+            top: 0;
+            height: 64px;
+            background: linear-gradient(90deg, #00332e 0%, #00534a 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 101;
+            box-shadow: 0 2px 8px rgba(30,41,59,0.08);
+        }
+        .dashboard-navbar .navbar-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .dashboard-navbar .navbar-user {
+            font-size: 1.5rem;
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 2rem 1rem 1rem 1rem;
+            padding-top: 80px;
+        }
+        .action-btn {
+            background: linear-gradient(90deg, #00332e 0%, #00bfae 100%);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.5rem;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(0,51,46,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        .action-btn:hover {
+            background: linear-gradient(90deg, #00bfae 0%, #00332e 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,51,46,0.18);
+        }
+        @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100vw;
+                min-height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+                position: static;
+            }
+            .dashboard-navbar {
+                left: 0;
+                padding: 0 1rem;
+            }
+            .main-content {
+                margin-left: 0;
+                margin-top: 80px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar shadow">
+    <img src="/public/smec_white.png" alt="SMEC Logo" class="logo">
+    <nav class="nav flex-column w-100 mt-2">
+        <a class="nav-link" href="<?= site_url('/admin/dashboard') ?>">Employee List</a>
+    </nav>
+    <a href="<?= site_url('/admin/logout') ?>" class="logout-link mt-auto">Logout</a>
+</div>
+<div class="dashboard-navbar">
+    <span class="navbar-title"><i class="bi bi-speedometer2"></i> Admin Dashboard</span>
+    <span class="navbar-user"><i class="bi bi-person-circle"></i></span>
+</div>
+<div class="main-content" style="margin-left:240px; padding-top:80px;">
+    <div class="container py-4">
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            <button id="generate-offer-letter" class="btn btn-success" style="background: linear-gradient(90deg, #00332e 0%, #00bfae 100%); color: #fff; font-weight:600;"><i class="bi bi-file-earmark-plus"></i> Generate Offer Letter</button>
+            <a href="#" id="generate-experience-letter" class="btn btn-info" style="background: linear-gradient(90deg, #00534a 0%, #00bfae 100%); color: #fff; font-weight:600;"><i class="bi bi-file-earmark-text"></i> Generate Experience Letter</a>
+            <a href="<?= site_url('/admin/dashboard') ?>" class="btn btn-secondary" style="background: linear-gradient(90deg, #00332e 0%, #00bfae 100%); color: #fff; font-weight:600;"><i class="bi bi-arrow-left"></i> Back to Dashboard</a>
+        </div>
+        
+        <!-- Offer Letter Preview Section (REMOVED - will be added to docs list directly) -->
+
+        <!-- Experience Certificate Preview Section (REMOVED - will be added to docs list directly) -->
+        
+        <!-- Certificate Preview Modal (REMOVED - no longer needed) -->
+
+        <!-- Add PDF.js CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+        <!-- Offer Letter Details Modal -->
+        <div class="modal fade" id="offerLetterModal" tabindex="-1" aria-labelledby="offerLetterModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="offerLetterModalLabel">Offer Letter Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="offerLetterForm">
+                  <div class="mb-3">
+                    <label for="joining_date" class="form-label">Joining Date</label>
+                    <input type="date" class="form-control" id="joining_date" name="joining_date" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="salary" class="form-label">Salary (INR per month)</label>
+                    <input type="text" class="form-control" id="salary" name="salary" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="reporting_manager" class="form-label">Reporting Manager</label>
+                    <input type="text" class="form-control" id="reporting_manager" name="reporting_manager" value="Shiyas A (Mob: 9656227714)" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Generate Offer Letter</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ensure Bootstrap JS is included before custom JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Offer Letter Modal open
+            const offerLetterBtn = document.getElementById('generate-offer-letter');
+            const offerLetterModal = document.getElementById('offerLetterModal');
+            if (offerLetterBtn && offerLetterModal) {
+                offerLetterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var modal = new bootstrap.Modal(offerLetterModal);
+                    modal.show();
+                });
+            }
+
+            // Offer Letter Modal submit
+            const offerLetterForm = document.getElementById('offerLetterForm');
+            offerLetterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const empId = <?= json_encode($employee['id']) ?>;
+                const joining_date = document.getElementById('joining_date').value;
+                const salary = document.getElementById('salary').value;
+                const reporting_manager = document.getElementById('reporting_manager').value;
+                const url = "<?= site_url('/offer-letter/generate') ?>";
+                const formData = new FormData();
+                formData.append('employee_id', empId);
+                formData.append('joining_date', joining_date);
+                formData.append('salary', salary);
+                formData.append('reporting_manager', reporting_manager);
+
+                const submitBtn = offerLetterForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating...';
+
+                fetch(url, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) return response.text().then(text => { throw new Error(text); });
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.download_url) {
+                        const docList = document.querySelector('#documents-list');
+                        const canvasId = `pdf-thumb-${data.doc_id}`;
+                        const newDocHtml = `
+                            <div class="col-6 col-md-4 col-lg-3 text-center doc-container doc-type-offer-letter">
+                                <canvas id="${canvasId}" class="doc-thumb mb-2" style="width:240px;height:330px;border:1px solid #ccc;border-radius:0.5rem;"></canvas>
+                                <div class="small mt-1">Offer Letter</div>
+                                <a href="${data.download_url}" class="btn btn-outline-primary btn-sm mt-1" download><i class="bi bi-download"></i> Download</a>
+                                <button class="btn btn-outline-danger btn-sm mt-1 delete-doc-btn" data-doc-id="${data.doc_id}"><i class="bi bi-trash"></i> Delete</button>
+                            </div>
+                        `;
+                        docList.insertAdjacentHTML('beforeend', newDocHtml);
+                        renderPdfThumbnail(data.download_url, canvasId);
+                        addDeleteHandlers();
+                        bootstrap.Modal.getInstance(document.getElementById('offerLetterModal')).hide();
+                    } else {
+                        alert('Error generating offer letter.');
+                    }
+                })
+                .catch(error => {
+                    alert('Error generating offer letter: ' + error.message);
+                    console.error('Error generating offer letter:', error.message);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Generate Offer Letter';
+                });
+            });
+
+            document.getElementById('generate-experience-letter').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const btn = this;
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating...';
+
+                // Hide existing experience certificate from the list
+                const existingCert = document.querySelector('.doc-type-experience-certificate');
+                if (existingCert) {
+                    existingCert.style.display = 'none';
+                }
+
+                var empId = <?= json_encode($employee['id']) ?>;
+                var today = new Date().toISOString().slice(0, 10);
+                var url = "<?= site_url('/experience-certificate/generate') ?>?employee_id=" + empId + "&date=" + today;
+                
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.download_url) {
+                            // Dynamically add the new document to the list
+                            const docList = document.querySelector('#documents-list');
+                            const newDocHtml = `
+                                <div class="col-6 col-md-4 col-lg-3 text-center doc-container doc-type-experience-certificate">
+                                    <img src="${data.download_url}" class="img-thumbnail doc-thumb mb-2" alt="Experience Certificate" style="width:240px;height:330px;object-fit:cover;border:1px solid #ccc;border-radius:0.5rem;">
+                                    <div class="small mt-1">Experience Certificate</div>
+                                    <a href="${data.download_url}" class="btn btn-outline-primary btn-sm mt-1" download><i class="bi bi-download"></i> Download</a>
+                                    <button class="btn btn-outline-danger btn-sm mt-1 delete-doc-btn" data-doc-id="${data.doc_id}"><i class="bi bi-trash"></i> Delete</button>
+                                </div>
+                            `;
+                            docList.insertAdjacentHTML('beforeend', newDocHtml);
+                            addDeleteHandlers(); // Add delete handler after inserting new document
+                        } else {
+                            alert('Error generating certificate');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error generating certificate');
+                    })
+                    .finally(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="bi bi-file-earmark-text"></i> Generate Experience Letter';
+                    });
+            });
+
+            function addDeleteHandlers() {
+                document.querySelectorAll('.delete-doc-btn').forEach(btn => {
+                    btn.onclick = function() {
+                        console.log('Delete clicked for docId:', this.getAttribute('data-doc-id'));
+                        if (!confirm('Are you sure you want to delete this document?')) return;
+                        const docId = this.getAttribute('data-doc-id');
+                        fetch(`<?= site_url('/admin/document/delete/') ?>${docId}`, {
+                            method: 'POST',
+                            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                this.closest('.doc-container').remove();
+                            } else {
+                                alert('Delete failed: ' + (data.error || 'Unknown error'));
+                            }
+                        })
+                        .catch(() => alert('Delete failed.'));
+                    };
+                });
+            }
+
+            // Ensure handlers are attached after DOM is loaded
+            addDeleteHandlers();
+
+            // PDF.js thumbnail rendering function
+            function renderPdfThumbnail(pdfUrl, canvasId) {
+                const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                loadingTask.promise.then(function(pdf) {
+                    pdf.getPage(1).then(function(page) {
+                        const scale = 0.5;
+                        const viewport = page.getViewport({ scale: scale });
+                        const canvas = document.getElementById(canvasId);
+                        if (!canvas) return;
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        page.render(renderContext);
+                    });
+                });
+            }
+        });
+        </script>
+        <div class="detail-header mb-0">
+            <h2 class="mb-1"><?= esc($employee['name']) ?></h2>
+            <div>ID: <?= esc($employee['employee_id']) ?> | Status: <span class="badge <?= $employee['status'] === 'active' ? 'bg-success' : 'bg-secondary' ?>"><?= ucfirst($employee['status']) ?></span></div>
+        </div>
+        <div class="detail-section">
+            <div class="row mb-3">
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Designation:</span> <span class="detail-value"><?= esc($employee['designation']) ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Department:</span> <span class="detail-value"><?= esc($employee['department']) ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Location:</span> <span class="detail-value"><?= esc($employee['location']) ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Contact:</span> <span class="detail-value"><?= esc($employee['contact']) ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Start Date:</span> <span class="detail-value"><?= esc($employee['start_date']) ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">End Date:</span> <span class="detail-value"><?= esc($employee['end_date']) ?: 'Present' ?></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <span class="detail-label">Date of Birth:</span> <span class="detail-value"><?= esc($employee['dob']) ?></span>
+                </div>
+            </div>
+            <h5 class="mt-4 mb-3" style="color:#00534a;">Documents</h5>
+            <div class="row g-3" id="documents-list">
+                <?php if (!empty($documents)): ?>
+                    <?php foreach ($documents as $doc): ?>
+                        <div class="col-6 col-md-4 col-lg-3 text-center doc-container doc-type-<?= str_replace('_', '-', $doc['doc_type']) ?>">
+                            <?php
+                            $ext = strtolower(pathinfo($doc['file_name'], PATHINFO_EXTENSION));
+                            $downloadUrl = site_url('/admin/download/' . $doc['id']);
+                            ?>
+                            <?php if ($ext === 'pdf'): ?>
+                                <canvas id="pdf-thumb-<?= $doc['id'] ?>" class="doc-thumb mb-2" style="width:240px;height:330px;border:1px solid #ccc;border-radius:0.5rem;"></canvas>
+                                <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    renderPdfThumbnail('<?= $downloadUrl ?>', 'pdf-thumb-<?= $doc['id'] ?>');
+                                });
+                                </script>
+                            <?php elseif (in_array($ext, ['jpg','jpeg','png'])): ?>
+                                <img src="<?= $downloadUrl ?>" class="img-thumbnail doc-thumb mb-2" alt="<?= esc($doc['original_name']) ?>" style="width:240px;height:330px;object-fit:cover;border:1px solid #ccc;border-radius:0.5rem;">
+                            <?php elseif (in_array($ext, ['doc','docx'])): ?>
+                                <span class="display-4 text-primary"><i class="bi bi-file-earmark-word"></i></span>
+                            <?php else: ?>
+                                <span class="display-4"><i class="bi bi-file-earmark"></i></span>
+                            <?php endif; ?>
+                            <div class="small mt-1"> <?= ucwords(str_replace('_',' ', $doc['doc_type'])) ?> </div>
+                            <a href="<?= $downloadUrl ?>" class="btn btn-outline-primary btn-sm mt-1" download><i class="bi bi-download"></i> Download</a>
+                            <button class="btn btn-outline-danger btn-sm mt-1 delete-doc-btn" data-doc-id="<?= $doc['id'] ?>"><i class="bi bi-trash"></i> Delete</button>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="col-12"><div class="alert alert-warning">No documents uploaded.</div></div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html> 

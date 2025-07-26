@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body { background: #fff; }
+        .sidebar {
+            min-height: 100vh;
+            background: #003583;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 1rem 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            z-index: 100;
+        }
+        .sidebar .logo {
+            max-width: 120px;
+            max-height: 80px;
+            margin-bottom: 2rem;
+        }
+        .sidebar .nav-link {
+            color: #fff;
+            font-weight: 500;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+            background: none;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .sidebar .logout-link {
+            margin-top: auto;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.10);
+            text-align: center;
+            width: 100%;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .sidebar .logout-link:hover {
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+        }
+        .dashboard-navbar {
+            position: fixed;
+            left: 240px;
+            right: 0;
+            top: 0;
+            height: 64px;
+            background: #003583;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 101;
+            box-shadow: 0 2px 8px rgba(30,41,59,0.08);
+        }
+        .dashboard-navbar .navbar-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .dashboard-navbar .navbar-user {
+            font-size: 1.5rem;
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 2rem 1rem 1rem 1rem;
+            padding-top: 80px;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .table thead { background: #6366f1; color: #fff; }
+        .table-striped>tbody>tr:nth-of-type(odd) { background-color: #eef2ff; }
+        .add-employee-btn {
+            background: linear-gradient(90deg, #00332e 0%, #00bfae 100%);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.5rem;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(0,51,46,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .add-employee-btn:hover {
+            background: linear-gradient(90deg, #00bfae 0%, #00332e 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,51,46,0.18);
+        }
+        .card.employee-card {
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.10), 0 1.5px 6px rgba(30,41,59,0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-top: 4px solid #6366f1;
+  background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%);
+  position: relative;
+  min-height: 320px;
+  /* reduced height for compactness */
+}
+.card.employee-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(99,102,241,0.18), 0 2px 8px rgba(30,41,59,0.12);
+  border-top: 4px solid #2563eb;
+}
+.card.employee-card .card-header {
+  background: linear-gradient(90deg, #00332e 0%, #00534a 100%);
+  color: #fff;
+  border-radius: 1.2rem 1.2rem 0 0;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,51,46,0.10);
+            }
+.card.employee-card .card-header .fw-bold {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 1.13rem;
+}
+.card.employee-card .card-body {
+  padding: 0.7rem 1.2rem 0.2rem 1.2rem;
+            }
+.card.employee-card .row.mb-2 {
+  margin-bottom: 0.3rem !important;
+}
+.card.employee-card .card-label {
+  font-size: 0.93rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 0.05rem;
+}
+.card.employee-card .card-value {
+  font-size: 1.01rem;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+            }
+.card.employee-card .card-title {
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+}
+.card.employee-card .badge.bg-primary {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+.card.employee-card .card-footer {
+  background: #f1f5f9;
+  border-top: 1.5px solid #e0e7ff;
+  border-radius: 0 0 1.2rem 1.2rem;
+  box-shadow: 0 -1px 4px rgba(99,102,241,0.04);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+            }
+.card.employee-card .btn {
+  font-weight: 500;
+  border-radius: 0.5rem;
+  min-width: 36px;
+}
+.card.employee-card .btn-secondary {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+}
+.card.employee-card .btn-secondary:hover {
+  background: linear-gradient(90deg, #60a5fa 0%, #6366f1 100%);
+  color: #fff;
+            }
+.card.employee-card .btn-warning {
+  background: #fbbf24;
+  color: #222;
+  border: none;
+}
+.card.employee-card .btn-warning:hover {
+  background: #f59e42;
+  color: #fff;
+}
+.card.employee-card .btn-danger {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+}
+.card.employee-card .btn-danger:hover {
+  background: #dc2626;
+  color: #fff;
+}
+.card.employee-card .btn-success {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+}
+.card.employee-card .btn-success:hover {
+  background: #16a34a;
+  color: #fff;
+            }
+.card.employee-card .toggle-status-btn {
+  min-width: 110px;
+        }
+        .custom-pagination {
+  width: 100%;
+}
+.custom-pagination .pagination {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end; /* always right align */
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+@media (max-width: 991.98px) {
+  .custom-pagination .pagination {
+    justify-content: center; /* center on mobile */
+  }
+        }
+        .custom-pagination .pagination li {
+            margin: 0;
+        }
+        .custom-pagination .pagination li a,
+        .custom-pagination .pagination li span {
+            display: inline-block;
+            min-width: 28px;
+            min-height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 0.35rem;
+            background: #fff;
+            border: 1.2px solid #6366f1;
+            color: #2563eb;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 1px 4px rgba(99,102,241,0.06);
+            margin: 0 1px;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            padding: 0 6px;
+        }
+        .custom-pagination .pagination li.active span,
+        .custom-pagination .pagination li a:hover {
+            background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+            color: #fff;
+            border-color: #2563eb;
+        }
+        .custom-pagination .pagination li.disabled span {
+            background: #f1f5f9;
+            color: #b0b0b0;
+            border-color: #e5e7eb;
+        }
+.table-sticky thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #00332e 0%, #00534a 100%);
+  color: #fff;
+  z-index: 2;
+}
+.table-hover tbody tr:hover {
+  background: #e0f2f1 !important;
+  transition: background 0.2s;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #e0f7fa;
+}
+.table-bordered {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.custom-pagination .pagination {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.custom-pagination .pagination li a,
+.custom-pagination .pagination li span {
+  display: inline-block;
+  min-width: 36px;
+  min-height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 0.5rem;
+  background: #fff;
+  border: 1.5px solid #00332e;
+  color: #00332e;
+  font-weight: 500;
+  font-size: 1.08rem;
+  box-shadow: 0 1px 4px rgba(0,51,46,0.08);
+  margin: 0 2px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  padding: 0 10px;
+}
+.custom-pagination .pagination li.active span,
+.custom-pagination .pagination li a:hover {
+  background: linear-gradient(90deg, #00332e 0%, #00534a 100%);
+  color: #fff;
+  border-color: #00332e;
+}
+.custom-pagination .pagination li.disabled span {
+  background: #f1f5f9;
+  color: #b0b0b0;
+  border-color: #e5e7eb;
+}
+.btn,
+.add-employee-btn,
+{
+  background: #003583 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn:hover,
+.add-employee-btn:hover,
+.btn-info:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-danger:hover {
+ 
+}
+.badge.bg-success,
+.badge.bg-secondary {
+ 
+}
+.table .btn,
+.table .btn-info,
+.table .btn-warning,
+.table .btn-danger,
+.table .btn-success,
+.table .btn-secondary {
+ 
+}
+.table .btn:hover,
+.table .btn-info:hover,
+.table .btn-warning:hover,
+.table .btn-danger:hover,
+.table .btn-success:hover,
+.table .btn-secondary:hover {
+ 
+}
+.sidebar {
+    background: #003583;
+    color: #fff;
+}
+.dashboard-navbar {
+    background: #003583;
+    color: #fff;
+}
+.add-employee-btn {
+    background: #003583 !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 700;
+    border-radius: 0.7rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.08rem;
+    box-shadow: 0 2px 8px rgba(0,53,131,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.add-employee-btn:hover {
+    background: #00275a !important;
+    color: #fff !important;
+}
+.table thead th, .table-sticky thead th {
+    background: #003583 !important;
+    color: #fff !important;
+    border-color: #003583 !important;
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar shadow">
+        <img src="/public/smec_white.png" alt="SMEC Logo" class="logo">
+        <nav class="nav flex-column w-100 mt-2">
+            <a class="nav-link active" href="#">Employee List</a>
+            <!-- Add more nav links here if needed -->
+        </nav>
+        <a href="<?= site_url('/admin/logout') ?>" class="logout-link mt-auto">Logout</a>
+    </div>
+    <div class="dashboard-navbar">
+        <span class="navbar-title"><i class="bi bi-speedometer2"></i> Admin Dashboard</span>
+        <span class="navbar-user"><i class="bi bi-person-circle"></i></span>
+    </div>
+    <div class="main-content">
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= esc(session()->getFlashdata('success')) ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php 
+                $errors = session()->getFlashdata('error');
+                if (is_array($errors)) {
+                    foreach ($errors as $err) echo esc($err) . '<br>';
+                } else {
+                    echo esc($errors);
+                }
+                ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+        <div class="dashboard-header">
+            <h2>Employee List</h2>
+            <form class="d-flex align-items-center" method="get" action="">
+                <input type="text" class="form-control me-2" name="search" placeholder="Search by Employee ID" value="<?= esc($search ?? '') ?>" style="max-width: 200px;">
+                <button class="btn btn-outline-primary me-2" type="submit"><i class="bi bi-search"></i></button>
+                <?php if (!empty($search)): ?>
+                    <a href="?" class="btn btn-outline-secondary"><i class="bi bi-x"></i></a>
+                <?php endif; ?>
+            </form>
+            <button class="add-employee-btn ms-3" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ Add Employee</button>
+        </div>
+        <?php if (!empty($employees) && count($employees) > 0): ?>
+<table class="table table-striped table-hover table-bordered align-middle table-sticky shadow-sm">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Employee ID</th>
+      <th>Designation</th>
+      <th>Department</th>
+      <th>Status</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Date of Birth</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($employees as $emp): ?>
+      <tr>
+        <td><?= esc($emp['name']) ?></td>
+        <td><?= esc($emp['employee_id']) ?></td>
+        <td><?= esc($emp['designation']) ?></td>
+        <td><?= esc($emp['department']) ?></td>
+        <td><span class="badge <?= $emp['status'] === 'active' ? 'bg-success' : 'bg-secondary' ?>"><?= ucfirst($emp['status']) ?></span></td>
+        <td><?= esc(date('d/m/Y', strtotime($emp['start_date']))) ?></td>
+        <td><?= esc($emp['end_date'] ? date('d/m/Y', strtotime($emp['end_date'])) : '') ?></td>
+        <td><?= esc(date('d/m/Y', strtotime($emp['dob']))) ?></td>
+        <td>
+          <a href="<?= site_url('/admin/employee/' . $emp['id']) ?>" class="btn btn-sm btn-info"><i class="bi bi-eye"></i> View</a>
+          <button class="btn btn-sm btn-warning text-dark edit-employee-btn" data-emp-id="<?= esc($emp['id']) ?>" title="Edit"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-sm btn-danger delete-employee-btn" data-emp-id="<?= esc($emp['id']) ?>" title="Delete"><i class="bi bi-trash"></i></button>
+          <?php if ($emp['approved']): ?>
+            <span class="badge bg-success"><i class="bi bi-check-circle"></i> Approved</span>
+          <?php else: ?>
+            <button class="btn btn-sm btn-success approve-employee-btn" data-emp-id="<?= esc($emp['id']) ?>" title="Approve"><i class="bi bi-check-circle"></i> Approve</button>
+          <?php endif; ?>
+          <button class="btn btn-sm toggle-status-btn <?= $emp['status'] === 'active' ? 'btn-secondary' : 'btn-success' ?>" data-emp-id="<?= esc($emp['id']) ?>" data-status="<?= esc($emp['status']) ?>" title="<?= $emp['status'] === 'active' ? 'Deactivate' : 'Activate' ?>">
+            <i class="bi <?= $emp['status'] === 'active' ? 'bi-x-circle' : 'bi-check-circle' ?>"></i> <?= $emp['status'] === 'active' ? 'Deactivate' : 'Activate' ?>
+          </button>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+<div class="d-flex justify-content-end custom-pagination">
+  <nav>
+    <?= $pager->links() ?>
+  </nav>
+</div>
+<?php else: ?>
+  <div class="alert alert-info">No employees found.</div>
+<?php endif; ?>
+    </div>
+    <!-- Add Employee Modal (to be implemented) -->
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header bg-primary text-white rounded-top-4">
+            <h5 class="modal-title d-flex align-items-center gap-2" id="addEmployeeModalLabel">
+              <i class="bi bi-person-plus"></i> Add Employee
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light rounded-bottom-4">
+            <form id="addEmployeeForm" method="post" action="<?= site_url('/admin/add_employee') ?>" enctype="multipart/form-data">
+                <h6 class="mb-3 text-primary"><i class="bi bi-person-badge"></i> Employee Details</h6>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="employee_id" class="form-label">Employee ID</label>
+                    <input type="text" class="form-control" id="employee_id" name="employee_id" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="designation" class="form-label">Designation</label>
+                    <input type="text" class="form-control" id="designation" name="designation" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="department" class="form-label">Department</label>
+                    <input type="text" class="form-control" id="department" name="department" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="contact" class="form-label">Contact</label>
+                    <input type="text" class="form-control" id="contact" name="contact" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status" required>
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <input type="text" class="form-control" id="start_date" name="start_date" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="end_date" class="form-label">End Date</label>
+                    <input type="text" class="form-control" id="end_date" name="end_date" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="text" class="form-control" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                  </div>
+                </div>
+                <hr class="my-4">
+                <h6 class="mb-3 text-primary"><i class="bi bi-upload"></i> Upload Documents</h6>
+                <div class="mb-3">
+                  <label for="offer_letter" class="form-label"><i class="bi bi-file-earmark-arrow-up"></i> Offer Letter</label>
+                  <input type="file" class="form-control" id="offer_letter" name="offer_letter" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+                <div class="mb-3">
+                  <label for="experience_certificate" class="form-label"><i class="bi bi-file-earmark-arrow-up"></i> Experience Certificate</label>
+                  <input type="file" class="form-control" id="experience_certificate" name="experience_certificate" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+                <div class="mb-3">
+                  <label for="other_certificates" class="form-label"><i class="bi bi-files"></i> Other Certificates</label>
+                  <input type="file" class="form-control" id="other_certificates" name="other_certificates[]" multiple accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+                <div class="d-grid mt-4">
+                  <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-person-plus"></i> Add Employee</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="viewEmployeeModal" tabindex="-1" aria-labelledby="viewEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header bg-info text-white rounded-top-4">
+            <h5 class="modal-title d-flex align-items-center gap-2" id="viewEmployeeModalLabel">
+              <i class="bi bi-person-lines-fill"></i> Employee Details
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light rounded-bottom-4">
+            <div id="view-employee-content">
+              <div class="text-center text-muted py-5">
+                <div class="spinner-border text-info" role="status"></div>
+                <div>Loading...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header bg-warning text-dark rounded-top-4">
+            <h5 class="modal-title d-flex align-items-center gap-2" id="editEmployeeModalLabel">
+              <i class="bi bi-pencil-square"></i> Edit Employee
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light rounded-bottom-4">
+            <form id="editEmployeeForm" method="post" enctype="multipart/form-data">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="edit_employee_id" class="form-label">Employee ID</label>
+                  <input type="text" class="form-control" id="edit_employee_id" name="employee_id" disabled>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="edit_name" name="name" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_designation" class="form-label">Designation</label>
+                  <input type="text" class="form-control" id="edit_designation" name="designation" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_department" class="form-label">Department</label>
+                  <input type="text" class="form-control" id="edit_department" name="department" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_contact" class="form-label">Contact</label>
+                  <input type="text" class="form-control" id="edit_contact" name="contact" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_location" class="form-label">Location</label>
+                  <input type="text" class="form-control" id="edit_location" name="location" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_status" class="form-label">Status</label>
+                  <select class="form-select" id="edit_status" name="status" required>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_start_date" class="form-label">Start Date</label>
+                  <input type="text" class="form-control" id="edit_start_date" name="start_date" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_end_date" class="form-label">End Date</label>
+                  <input type="text" class="form-control" id="edit_end_date" name="end_date" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="edit_dob" class="form-label">Date of Birth</label>
+                  <input type="text" class="form-control" id="edit_dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="col-12 mt-4">
+                  <label for="edit_offer_letter" class="form-label"><i class="bi bi-file-earmark-arrow-up"></i> Offer Letter (Upload to replace)</label>
+                  <input type="file" class="form-control" id="edit_offer_letter" name="offer_letter" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+                <div class="col-12">
+                  <label for="edit_experience_certificate" class="form-label"><i class="bi bi-file-earmark-arrow-up"></i> Experience Certificate (Upload to replace)</label>
+                  <input type="file" class="form-control" id="edit_experience_certificate" name="experience_certificate" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+                <div class="col-12">
+                  <label for="edit_other_certificates" class="form-label"><i class="bi bi-files"></i> Other Certificates (Upload to add more)</label>
+                  <input type="file" class="form-control" id="edit_other_certificates" name="other_certificates[]" multiple accept=".pdf,.doc,.docx,.jpeg,.jpg,.png">
+                </div>
+              </div>
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-warning btn-lg text-dark"><i class="bi bi-pencil-square"></i> Update Employee</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Experience Certificate Modal -->
+    <div class="modal fade" id="expCertModal" tabindex="-1" aria-labelledby="expCertModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header bg-secondary text-white rounded-top-4">
+            <h5 class="modal-title" id="expCertModalLabel"><i class="bi bi-file-earmark-text"></i> Create Experience Certificate</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light rounded-bottom-4">
+            <form id="expCertForm" method="post">
+              <input type="hidden" id="exp_cert_employee_id" name="employee_id">
+              <div class="mb-3">
+                <label for="exp_cert_date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="exp_cert_date" name="date" required value="<?= date('Y-m-d') ?>">
+              </div>
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-secondary btn-lg"><i class="bi bi-file-earmark-text"></i> Generate Certificate</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery and jQuery UI for datepicker -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+$(function() {
+  var dateFields = ['#start_date', '#end_date', '#dob', '#edit_start_date', '#edit_end_date', '#edit_dob'];
+  dateFields.forEach(function(id) {
+    $(id).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true,
+      yearRange: '1950:2025',
+      maxDate: 0
+    });
+  });
+  // On form submit, convert all date fields to dd-mm-yyyy for backend
+  $('form').on('submit', function() {
+    dateFields.forEach(function(id) {
+      var $el = $(id);
+      var val = $el.val();
+      if (val) {
+        var parts = val.split('/');
+        if (parts.length === 3) {
+          $el.val(parts[0] + '-' + parts[1] + '-' + parts[2]);
+        }
+      }
+    });
+  });
+});
+function formatDateForPicker(dateStr) {
+  if (!dateStr || dateStr === '0000-00-00') return '';
+  var parts = dateStr.split('-');
+  if (parts.length === 3) {
+    return parts[2] + '/' + parts[1] + '/' + parts[0];
+  }
+  return dateStr;
+}
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Enable Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+</script>
+<script>
+document.querySelectorAll('.edit-employee-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const empId = this.getAttribute('data-emp-id');
+    const modal = new bootstrap.Modal(document.getElementById('editEmployeeModal'));
+    fetch(`<?= site_url('/admin/get_employee/') ?>${empId}`)
+      .then(res => res.json())
+      .then(emp => {
+        document.getElementById('edit_employee_id').value = emp.employee_id;
+        document.getElementById('edit_name').value = emp.name;
+        document.getElementById('edit_designation').value = emp.designation;
+        document.getElementById('edit_department').value = emp.department;
+        document.getElementById('edit_contact').value = emp.contact;
+        document.getElementById('edit_location').value = emp.location;
+        document.getElementById('edit_status').value = emp.status;
+        document.getElementById('edit_start_date').value = formatDateForPicker(emp.start_date);
+        document.getElementById('edit_end_date').value = formatDateForPicker(emp.end_date);
+        document.getElementById('edit_dob').value = formatDateForPicker(emp.dob);
+        document.getElementById('editEmployeeForm').setAttribute('action', `<?= site_url('/admin/update_employee/') ?>${emp.id}`);
+        modal.show();
+      });
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.approve-employee-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const empId = this.getAttribute('data-emp-id');
+    fetch(`<?= site_url('/admin/approve_employee/') ?>${empId}`, { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          btn.outerHTML = '<span class="badge bg-success"><i class="bi bi-check-circle"></i> Approved</span>';
+        } else {
+          alert(data.error || 'Failed to approve employee.');
+        }
+      });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.toggle-status-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const empId = this.getAttribute('data-emp-id');
+      const currentStatus = this.getAttribute('data-status');
+      const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
+      const button = this;
+      fetch(`<?= site_url('/admin/toggle_status/') ?>${empId}`, {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        body: new URLSearchParams({ status: newStatus })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          // Update status badge and button instantly
+          const row = button.closest('tr');
+          const statusCell = row.querySelector('td:nth-child(5) .badge');
+          if (statusCell) {
+            statusCell.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+            statusCell.className = 'badge ' + (newStatus === 'active' ? 'bg-success' : 'bg-secondary');
+          }
+          button.setAttribute('data-status', newStatus);
+          button.className = 'btn btn-sm toggle-status-btn ' + (newStatus === 'active' ? 'btn-secondary' : 'btn-success');
+          button.innerHTML = `<i class="bi ${newStatus === 'active' ? 'bi-x-circle' : 'bi-check-circle'}"></i> ${newStatus === 'active' ? 'Deactivate' : 'Activate'}`;
+        } else {
+          alert('Status change failed.');
+        }
+      })
+      .catch(() => alert('Status change failed.'));
+    });
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.delete-employee-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const empId = this.getAttribute('data-emp-id');
+    if (!confirm('Are you sure you want to delete this employee and all their documents?')) return;
+    const row = btn.closest('tr');
+    fetch(`<?= site_url('/admin/delete_employee/') ?>${empId}`, { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          row.remove();
+        } else {
+          alert(data.error || 'Failed to delete employee.');
+        }
+      });
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.create-exp-cert-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const empId = this.getAttribute('data-emp-id');
+    document.getElementById('exp_cert_employee_id').value = empId;
+    const modal = new bootstrap.Modal(document.getElementById('expCertModal'));
+    modal.show();
+  });
+});
+document.getElementById('expCertForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const empId = document.getElementById('exp_cert_employee_id').value;
+  const date = document.getElementById('exp_cert_date').value;
+  window.open(`<?= site_url('/experience-certificate/generate?employee_id=') ?>${empId}&date=${date}`, '_blank');
+});
+</script>
+<script>
+document.querySelectorAll('.employee-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('.card-footer button')) return; // Don't trigger on action buttons
+    const empId = this.getAttribute('data-emp-id');
+    window.location.href = `<?= site_url('/admin/employee/') ?>${empId}`;
+  });
+});
+</script>
+</body>
+</html> 

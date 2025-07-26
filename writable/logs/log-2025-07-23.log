@@ -1,0 +1,30 @@
+CRITICAL - 2025-07-23 07:18:03 --> Error: Class "App\Libraries\CustomTCPDF" not found
+[Method: POST, Route: offer-letter/generate]
+in APPPATH/Controllers/OfferLetterController.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\OfferLetterController->generate()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-23 07:18:47 --> Error: Class "App\Libraries\CustomTCPDF" not found
+[Method: POST, Route: offer-letter/generate]
+in APPPATH/Controllers/OfferLetterController.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\OfferLetterController->generate()
+ 2 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2025-07-23 08:56:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashboard.php"
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1173): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Admin.php(45): view()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->dashboard()
+ 5 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(50): CodeIgniter\Boot::bootWeb()

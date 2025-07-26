@@ -1,0 +1,94 @@
+<?php
+namespace App\Controllers;
+
+use CodeIgniter\Controller;
+use App\Models\EmployeeModel;
+use TCPDF;
+
+class OfferLetterController extends Controller
+{
+    public function generate()
+    {
+        $employeeId = $this->request->getGet('employee_id');
+        $date = $this->request->getGet('date');
+        if (!$employeeId || !$date) {
+            return $this->response->setStatusCode(400)->setBody('Missing parameters');
+        }
+        
+        $employeeModel = new EmployeeModel();
+        $emp = $employeeModel->find($employeeId);
+        if (!$emp) {
+            return $this->response->setStatusCode(404)->setBody('Employee not found');
+        }
+
+        // Create PDF
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('SMEC');
+        $pdf->SetTitle('Offer Letter - ' . $emp['name']);
+        $pdf->SetSubject('Offer Letter');
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+        
+        // Set all margins to zero
+        $pdf->SetMargins(0, 0, 0);
+        $pdf->SetAutoPageBreak(false, 0);
+
+        $pdf->AddPage();
+
+        // Set background image to cover the entire page
+        $bgPath = FCPATH . 'exp-backgroung.jpg';
+        if (file_exists($bgPath)) {
+            $pdf->Image(
+                $bgPath,
+                0, 0,
+                $pdf->getPageWidth(),
+                $pdf->getPageHeight(),
+                '', '', '', false, 300, '', false, false, 0, false, false
+            );
+        }
+
+        // Now re-enable auto page break and set your desired margins for content
+        $pdf->SetAutoPageBreak(true, 0);
+        $pdf->SetMargins(15, 30, 15); // <-- adjust this value for your desired top padding
+
+        // Move down to clear the logo
+        $pdf->Ln(50); // Adjust 80 to match your logo height
+
+        // --- Placeholder Content ---
+        $html = "<h1>Offer Letter</h1>
+                 <p>Date: " . date('d-m-Y', strtotime($date)) . "</p>
+                 <p>Dear " . $emp['name'] . ",</p>
+                 <p>We are pleased to offer you the position of <strong>" . $emp['designation'] . "</strong>.</p>
+                 <p>Further details will be provided soon.</p>
+                 <br><br>
+                 <p>Sincerely,</p>
+                 <p><strong>SMEC Automation Pvt. Ltd.</strong></p>";
+        
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        // Save PDF to a file
+        $filename = 'Offer_Letter_' . $emp['name'] . '_' . date('YmdHis') . '.pdf';
+        $folder = WRITEPATH . 'uploads/offer_letters/';
+        if (!is_dir($folder)) {
+            mkdir($folder, 0777, true);
+        }
+        $filepath = $folder . $filename;
+        $pdf->Output($filepath, 'F');
+
+        // Save to documents table
+        $documentModel = new \App\Models\DocumentModel();
+        $documentModel->insert([
+            'employee_id' => $employeeId,
+            'doc_type' => 'offer_letter',
+            'file_name' => $filename,
+            'original_name' => 'Offer_Letter.pdf',
+            'uploaded_at' => date('Y-m-d H:i:s')
+        ]);
+        $docId = $documentModel->getInsertID();
+        return $this->response->setJSON([
+            'doc_id' => $docId,
+            'download_url' => site_url('/admin/download/' . $docId)
+        ]);
+    }
+} 
